@@ -16,9 +16,16 @@ public class Main {
         Director director = Director.getDirector();
 
         director.sendCommand(new StartWork(callCenter));
-        System.out.println("Order status: "+callCenter.createNewOrder(orderWithoutPizza));
-        System.out.println("Order status: "+callCenter.createNewOrder(orderOnlyPizza));
+        sendOrder(orderOnlyPizza);
+        sendOrder(orderWithoutPizza);
         director.sendCommand(new StopWork(callCenter));
-        System.out.println("Order status: "+callCenter.createNewOrder(orderAll));
+        sendOrder(orderAll);
+        director.sendCommand(new StartWork(callCenter));
+        sendOrder(orderAll);
+    }
+
+    private static void sendOrder(Order order){
+        CallCenter callCenter = CallCenter.getCallCenter();
+        System.out.println("Order status: "+callCenter.createNewOrder(order));
     }
 }

@@ -40,12 +40,14 @@ public final class CallCenter implements CreateOrderFacade {
         if (order.getCountOfPizzas() > 0){
             PizzaFactory pizza = new PizzaFactory();
             cookingService.setCookingStrategy(pizza);
+            cookingService.cook();
             OrderTime orderTime = new OrderTimeImpl(pizza);
             pizzaOrderTime = orderTime.getMinutesToReceive();
         }
         if (order.getCountOfSushi() > 0) {
             SushiFactory sushiFactory = new SushiFactory();
             cookingService.setCookingStrategy(sushiFactory);
+            cookingService.cook();
             OrderTime orderTime = new OrderTimeImpl(sushiFactory);
             sushiOrderTime = orderTime.getMinutesToReceive();
         }
