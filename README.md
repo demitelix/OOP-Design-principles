@@ -9,3 +9,9 @@ Used patterns:
         
     Adapter pattern (Structural)
         - Receive complete delivery order time instead just creating time
+        
+    Commander pattern (Behavioral)
+        - Director starts or stops call center work
+        
+    Strategy pattern (Behavioral)
+        - Choose factory to create order
